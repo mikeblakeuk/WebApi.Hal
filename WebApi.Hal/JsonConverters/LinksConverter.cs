@@ -6,9 +6,9 @@ using System.Text.Json.Serialization;
 
 namespace WebApi.Hal.JsonConverters
 {
-    internal sealed class LinksConverter : JsonConverter<IList<Link>>
+    internal sealed class LinksConverter : JsonConverter<List<Link>>
     {
-        public override void Write(Utf8JsonWriter writer, IList<Link> value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, List<Link> value, JsonSerializerOptions options)
         {
             if (value is null)
             {
@@ -44,7 +44,7 @@ namespace WebApi.Hal.JsonConverters
             writer.WriteEndObject();
         }
 
-        public override IList<Link> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override List<Link> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType is JsonTokenType.Null)
             {
@@ -52,7 +52,7 @@ namespace WebApi.Hal.JsonConverters
             }
 
             // TODO check this works!
-            var list = JsonSerializer.Deserialize<IList<Link>>(ref reader, options);
+            var list = JsonSerializer.Deserialize<List<Link>>(ref reader, options);
             return list;
         }
 

@@ -40,7 +40,7 @@ namespace WebApi.Hal.JsonConverters
 
         public override void Write(Utf8JsonWriter writer, IResource value, JsonSerializerOptions options)
         {
-            var resource = (IResource)value;
+            var resource = value;
 			var linksBackup = resource.Links;
 
             if (linksBackup.Count == 0)

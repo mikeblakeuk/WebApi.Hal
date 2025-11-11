@@ -11,7 +11,6 @@ namespace WebApi.Hal.Web.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.3-rtm-32065");
 
@@ -130,7 +129,6 @@ namespace WebApi.Hal.Web.Migrations
                         .HasForeignKey("Beer_Id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
-#pragma warning restore 612, 618
         }
     }
 }
